@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<ol>	
+{%for query in queryset%}
+<li> <a href = '{% if query.slug %} {{ query.slug }} {% endif %}'>{{ query }} </a>
+	{% if query.description %}
+	<br>
+	{{ query.description }}
+	{% endif %}
+
+	{% if query.image1 %}
+	<img src="/media/{{ query.image1}}" width = 300 >
+	{% endif %}
+
+</li>
+{% endfor %}
+</ol>
+
+{% endblock %}
